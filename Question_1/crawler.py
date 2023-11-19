@@ -12,7 +12,7 @@ def scrape_urls(url, pages, urlfilename):
     for i in tqdm(range(1, pages+1)):
         #We change along the first 400 pages and request via their urls
         base_url = f"{urlsplit(url).scheme}://{urlsplit(url).netloc}"
-        url = url+'?page='+str(i)
+        url = url+'?PG='+str(i)
         result = requests.get(url)
         soup = BeautifulSoup(result.text, 'html.parser')
 
@@ -53,4 +53,4 @@ def scrape_htmls(urlfilename,htmlfolderName):
         output_file = os.path.join(output_folder, f'Html-{i + 1}.txt')
         with open(output_file, 'a') as doc:
             doc.write(html.text)
-        time.sleep(1)
+        time.sleep(1.5)
