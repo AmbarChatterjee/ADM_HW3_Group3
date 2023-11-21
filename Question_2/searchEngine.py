@@ -1,5 +1,7 @@
 import nltk
+import heapq
 import numpy as np
+import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -30,13 +32,6 @@ def conjunction_search(courses_df, vocabulary, inverted_index, query):
     # Create a new DataFrame with the matching rows
     matching_df = courses_df.iloc[list(matching_indices)]
     return matching_df
-
-import heapq
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from nltk.stem import PorterStemmer
-import pandas as pd
-import numpy as np
 
 def tfidf_conjunction_search_topk(courses_df, vocabulary, inverted_index, query, vectorizer, X, k):
     # Tokenize and preprocess the query using the same pre-processing steps
