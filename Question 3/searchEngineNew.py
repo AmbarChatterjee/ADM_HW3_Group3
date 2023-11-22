@@ -1,8 +1,6 @@
 import pandas as pd
 import heapq
 
-# Assuming you have the 'courses_df', 'vocabulary', and 'inverted_index' already defined
-
 def calculate_score(document, weights, min_values, max_values, query):
     total_score = 0
     for key, weight in weights.items():
