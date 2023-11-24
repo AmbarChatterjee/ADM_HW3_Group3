@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import re
 from forex_python.converter import CurrencyRates
+from dotenv import load_dotenv
 
 #function to convert each of the TSV to dataframe
 def TSV_to_dataframe(column_names, folder_name, num_files):
@@ -105,7 +106,9 @@ def extract_fees(row):
 
 
 #function to get exchange rates using api suggested by ChatGPT
-def get__currency_rates_api(from_currency, api_key='ef1ff6e934f5cc8c6b3aebce'):
+load_dotenv()
+currency_api_key = os.getenv("CURRENCY_API") ##we have masked the api key for security purposes.
+def get__currency_rates_api(from_currency, api_key=currency_api_key):
     #creating the url using the api key and currency: as per the api documentation
     url = f'https://v6.exchangerate-api.com/v6/{api_key}/latest/{from_currency}'
     response = requests.get(url)
