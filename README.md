@@ -17,6 +17,7 @@ The repository contains the following key files and folders:
   - `vocabulary.txt`: Vocabulary mapping words to IDs
   - `Map.html`: Interactive map visualization
   - `Description.md`: Metadata markdown file
+  - `merged_courses.tsv`: Merged courses data
   
 - `CommandLine.sh`: Bash script containing solution for command line question 
 
